@@ -1,0 +1,15 @@
+name: Shell bootstrap smoke tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bash syntax and isolated generated-file checks
+        run: bash tests/test_bootstrap.sh
